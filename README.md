@@ -1,101 +1,267 @@
-<<<<<<< HEAD
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# KreedaTech 🏃‍♂️
 
-# Getting Started
+KreedaTech is an AI-powered sports analytics and performance-tracking mobile application built with React Native. It uses computer vision and pose detection to analyze athletic movements during fitness drills and provide performance insights.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## ✨ Features
 
-## Step 1: Start Metro
+- **AI-Based Pose Detection**  
+  Uses camera-based pose detection to track athlete movements during fitness drills.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Automated Drill Analysis**  
+  Custom pose analysis engines evaluate athletic activities such as sprinting, jumping, sit-ups, and cone drills.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Performance Tracking**  
+  Records test results and provides athletes with performance metrics and progress information.
 
-```sh
-# Using npm
+- **Analytics Dashboard**  
+  Displays athlete performance data through visual charts and statistics.
+
+- **Leaderboard**  
+  Allows athletes to compare their performance and rankings with other users.
+
+- **Athlete Profiles**  
+  Stores user profiles, test history, scores, and performance information.
+
+- **Full-Stack Architecture**  
+  Uses a Node.js and Express.js backend with MongoDB for storing and managing application data.
+
+---
+
+## 🛠️ Tech Stack
+
+### Mobile Application
+
+- **Framework:** React Native
+- **Language:** JavaScript / JSX
+- **Navigation:** React Navigation
+- **Camera:** React Native Vision Camera
+- **Pose Detection:** Vision Camera Pose Detector
+- **Charts:** React Native Chart Kit
+- **Icons:** Lucide React Native
+
+### Backend
+
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Database:** MongoDB
+- **ODM:** Mongoose
+- **Authentication:** bcryptjs
+- **API Communication:** REST API
+- **Configuration:** dotenv
+- **Cross-Origin Support:** CORS
+
+### Development Tools
+
+- Git & GitHub
+- Android Studio
+- Xcode
+- npm
+
+---
+
+## 📁 Project Structure
+
+```text
+KreedaTech/
+│
+├── android/                  # Android native project
+├── ios/                      # iOS native project
+│
+├── backend/                  # Node.js / Express backend
+│   ├── models/               # Mongoose data models
+│   ├── routes/               # REST API routes
+│   ├── server.js             # Backend entry point
+│   └── .env                  # Environment variables (not committed)
+│
+├── dataset/                  # Athlete and test datasets
+│
+├── scripts/                  # Utility and testing scripts
+│
+├── src/
+│   ├── config/               # Application configuration
+│   ├── screens/              # Application screens
+│   ├── utils/                # Pose analysis and utility logic
+│   └── Assests/              # Application assets
+│
+├── App.jsx                   # Main React Native component
+├── index.js                  # Application entry point
+├── package.json              # Frontend dependencies
+├── package-lock.json         # Dependency lock file
+└── README.md                 # Project documentation
+```
+
+---
+
+## 🚀 Getting Started
+
+Follow the steps below to run KreedaTech locally.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- npm
+- [Android Studio](https://developer.android.com/studio) for Android development
+- [React Native development environment](https://reactnative.dev/docs/set-up-your-environment)
+- MongoDB or a MongoDB Atlas database
+
+---
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/somesh-chaudhary/KreedaTech.git
+cd KreedaTech
+```
+
+---
+
+## 2. Install Frontend Dependencies
+
+From the project root:
+
+```bash
+npm install
+```
+
+---
+
+## 3. Configure the Backend
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file inside the `backend/` directory:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+```
+
+Then start the backend:
+
+```bash
+node server.js
+```
+
+Keep this terminal running.
+
+> **Note:** Never commit your `.env` file or database credentials to GitHub.
+
+---
+
+## 4. Start the Mobile Application
+
+Open a new terminal and return to the project root:
+
+```bash
+cd KreedaTech
+```
+
+Start the Metro Bundler:
+
+```bash
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 5. Run on Android
 
-### Android
+Make sure an Android emulator is running or an Android device is connected.
 
-```sh
-# Using npm
+Then run:
+
+```bash
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 📱 Application Flow
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+The application follows a simple athlete workflow:
 
-```sh
-bundle install
+```text
+User Registration
+       ↓
+Athlete Profile
+       ↓
+Select Fitness Test
+       ↓
+Perform Drill
+       ↓
+Camera / Pose Detection
+       ↓
+Movement Analysis
+       ↓
+Score & Performance Metrics
+       ↓
+Analytics & Leaderboard
 ```
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
-```
+## 🤖 AI & Computer Vision
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+KreedaTech uses camera-based pose detection to analyze athlete movements.
 
-```sh
-# Using npm
-npm run ios
+The project includes custom analysis modules for different activities:
 
-# OR using Yarn
-yarn ios
-```
+- `situpPoseEngine.js`
+- `jumpPoseEngine.js`
+- `dashPoseEngine.js`
+- `conePoseEngine.js`
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+These modules process pose information and use movement-related measurements to evaluate athletic performance.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+---
 
-## Step 3: Modify your app
+## 📊 Performance Analytics
 
-Now that you have successfully run the app, let's make changes!
+The application provides performance information such as:
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+- Test scores
+- Sprint performance
+- Drill results
+- Athlete progress
+- Leaderboard rankings
+- Historical test data
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+This allows athletes to track their performance over multiple assessments.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 🔐 Security
 
-You've successfully run and modified your React Native App. :partying_face:
+The backend uses:
 
-### Now what?
+- `bcryptjs` for password hashing
+- Environment variables for sensitive configuration
+- CORS for API access control
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Sensitive credentials such as MongoDB connection strings should always be stored in `.env` files and excluded from version control.
 
-# Troubleshooting
+---
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 🔮 Future Improvements
 
-# Learn More
+Potential improvements include:
 
-To learn more about React Native, take a look at the following resources:
+- More advanced pose estimation models
+- Additional sports and fitness drills
+- Improved real-time movement feedback
+- More detailed athlete performance reports
+- Cloud-based deployment
+- Advanced athlete comparison and recommendations
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-=======
-# SIH-2025
->>>>>>> ed4eb278046bd1328eebf73b2af7c6d5b7f2dc52
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
